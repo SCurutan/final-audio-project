@@ -1,0 +1,178 @@
+body {
+    background-color: black;
+}
+
+/* landing page */
+.door-background {
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+#enter-btn {
+    position: absolute;
+    left: 44%;
+    top: 140%;
+    width: 17%;
+}
+
+/* studio page */
+.studio-background {
+    position: relative; 
+    height: 100%;
+    width: 100%;
+}
+
+.volume { 
+    background: #053321;
+}
+
+/* instrument pictures */
+#guitar, #guitar-col {
+    position: absolute;
+    left: 14%;
+    top: 35%;
+    width: 20%;
+}
+#ukulele, #ukulele-col {
+    position: absolute;
+    left: 41%;
+    top: 55%;
+    width: 10%;
+}
+#tambo, #tambo-col {
+    position: absolute;
+    left: 87%;
+    top: 28%;
+    width: 10%;
+}
+#djembe, #djembe-col {
+    position: absolute;
+    left: 30%;
+    top: 50%;
+    width: 10%;
+}
+#cajon, #cajon-col {
+    position: absolute;
+    left: 50.5%;
+    top: 60%;
+    width: 13%;
+}
+#mic-one, #mic-one-col {
+    position: absolute;
+    left: 84.8%;
+    top: 10%;
+    width: 15%;
+}
+#mic-two, #mic-two-col {
+    position: absolute;
+    left: 84.5%;
+    top: 40%;
+    width: 15%;
+}
+#speaker, #speaker-col {
+    position: absolute;
+    left: 78%;
+    top: 70%;
+    width: 14%;
+}
+#bass, #bass-col {
+    position: absolute;
+    left: 66.8%;
+    top: 50%;
+    width: 14%;
+}
+.inactive {
+    display: none;
+}
+.active {
+    display: block;
+}
+
+/* buttons */
+#play-btn, #pause-btn {
+    position: absolute;
+    left: 54%;
+    top: 11%;
+    width: 5%;
+}
+#stop-btn {
+    position: absolute;
+    left: 60%;
+    top: 11%;
+    width: 5%;
+}
+
+/* volume sliders */
+#volume-slider {
+    position: absolute;
+    left: 67%;
+    top: 15%;
+    -webkit-appearance: none;
+    width: 17%; 
+    height: 8px; 
+    background: #053321; 
+    outline: none; 
+}
+/* did not change the slider thumb appearance since ::-webkit-slider-thumb is not supported by all browsers */
+#volume {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #efeeec;
+    font-size: 17px;
+    position: absolute;
+    left: 69.5%;
+    top: 20%;
+}
+.instr-vol-slider {
+    -webkit-appearance: none;
+    width: 9%; 
+    height: 6px; 
+    background: #efeeec; 
+    outline: none; 
+}
+#volume-guitar {
+    position: absolute;
+    left: 21.5%;
+    top: 114.5%;
+}
+#volume-ukulele {
+    position: absolute;
+    left: 40%;
+    top: 92.5%;
+}
+#volume-tambo {
+    position: absolute;
+    left: 87.5%;
+    top: 38%;
+}
+#volume-djembe {
+    position: absolute;
+    left: 30%;
+    top: 79%;
+}
+#volume-cajon {
+    position: absolute;
+    left: 53%;
+    top: 88%;
+}
+#volume-mic-one {
+    position: absolute;
+    left: 87%;
+    top: 23%;
+}
+#volume-mic-two {
+    position: absolute;
+    left: 86%;
+    top: 60%;
+}
+#volume-speaker {
+    position: absolute;
+    left: 80.5%;
+    top: 113.5%;
+}
+#volume-bass {
+    position: absolute;
+    left: 68%;
+    top: 112%;
+}
