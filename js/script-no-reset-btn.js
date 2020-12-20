@@ -1,8 +1,8 @@
+
 //define interactive buttons
 let playBtn = document.getElementById(`play-btn`)
 let pauseBtn = document.getElementById(`pause-btn`)
 let stopBtn = document.getElementById(`stop-btn`)
-let resetBtn = document.getElementById(`reset-btn`)
 
 //define range sliders per instrument
 let volumeGuitar = document.getElementById(`volume-guitar`)
@@ -15,10 +15,12 @@ let volumeBass = document.getElementById(`volume-bass`)
 let volumeMicTwo = document.getElementById(`volume-mic-two`)
 let volumeSpeaker = document.getElementById(`volume-speaker`)
 
-//define array
+
+//define array and set volumes
 let instrSelected = [] 
 
-//set initial volumes of instruments
+// let masterVolume = 0.5 //tried to create master volume but code did not take
+
 let initGuitarVol = 0.3
 let initUkuleleVol = 0.3
 let initTamboVol = 0.3
@@ -29,7 +31,7 @@ let initBassVol = 0.4
 let initMicTwoVol = 0.5
 let initSpeakerVol = 0.3
 
-// //define audio files
+//define audio files
 let audioGuitar = new Audio(`audio/guitar.mp3`)
 let audioUkulele = new Audio(`audio/ukulele.mp3`)
 let audioTambo = new Audio(`audio/tambourine.mp3`)
@@ -52,34 +54,170 @@ audioMicTwo.volume = initMicTwoVol
 audioSpeaker.volume = initSpeakerVol
 
 //define instruments images
-let guitar = document.getElementById(`guitar`)
-let guitarCol = document.getElementById(`guitar-col`)
+let guitar = document.querySelector(`#guitar`)
+let guitarCol = document.querySelector(`#guitar-col`)
 
-let ukulele = document.getElementById(`ukulele`)
-let ukuleleCol = document.getElementById(`ukulele-col`)
+let ukulele = document.querySelector(`#ukulele`)
+let ukuleleCol = document.querySelector(`#ukulele-col`)
 
-let tambo = document.getElementById(`tambo`)
-let tamboCol = document.getElementById(`tambo-col`)
+let tambo = document.querySelector(`#tambo`)
+let tamboCol = document.querySelector(`#tambo-col`)
 
-let djembe = document.getElementById(`djembe`)
-let djembeCol = document.getElementById(`djembe-col`)
+let djembe = document.querySelector(`#djembe`)
+let djembeCol = document.querySelector(`#djembe-col`)
 
-let cajon = document.getElementById(`cajon`)
-let cajonCol = document.getElementById(`cajon-col`)
+let cajon = document.querySelector(`#cajon`)
+let cajonCol = document.querySelector(`#cajon-col`)
 
-let micOne = document.getElementById(`mic-one`)
-let micOneCol = document.getElementById(`mic-one-col`)
+let micOne = document.querySelector(`#mic-one`)
+let micOneCol = document.querySelector(`#mic-one-col`)
 
-let micTwo = document.getElementById(`mic-two`)
-let micTwoCol = document.getElementById(`mic-two-col`)
+let micTwo = document.querySelector(`#mic-two`)
+let micTwoCol = document.querySelector(`#mic-two-col`)
 
-let speaker = document.getElementById(`speaker`)
-let speakerCol = document.getElementById(`speaker-col`)
+let speaker = document.querySelector(`#speaker`)
+let speakerCol = document.querySelector(`#speaker-col`)
 
-let bass = document.getElementById(`bass`)
-let bassCol = document.getElementById(`bass-col`)
+let bass = document.querySelector(`#bass`)
+let bassCol = document.querySelector(`#bass-col`)
 
-//used this function to reset images less efficently than forEach
+// tried to change all instruments to black and white upon stop button click. But code would not recognize adding class to the following two variables. Writer added classes to each instrument individually to accommodate this get around this issue.
+//seen in resetInstruments function below
+// let colInstruments = document.querySelector(`#instruments-col`)
+// let bwInstruments = document.querySelector(`#instruments-bw`)
+
+//add event listener to images (toggle between black-and-white and coloured images)
+//since instruments are pushed to the end of the array, they do not have the option of removing the instrument from the array 
+//this was changed in final code used for web page
+guitar.addEventListener(`click`, function() {
+    guitar.classList.toggle(`inactive`)
+    guitarCol.classList.add(`active`)
+    instrSelected.push(audioGuitar)
+})
+guitarCol.addEventListener(`click`, function() {
+    guitarCol.classList.toggle(`active`)
+    guitar.classList.add(`active`)
+})
+
+ukulele.addEventListener(`click`, function() {
+    ukulele.classList.toggle(`inactive`)
+    ukuleleCol.classList.add(`active`)
+    instrSelected.push(audioUkulele)
+})
+ukuleleCol.addEventListener(`click`, function() {
+    ukuleleCol.classList.toggle(`active`)
+    ukulele.classList.add(`active`)
+})
+
+tambo.addEventListener(`click`, function() {
+    tambo.classList.toggle(`inactive`)
+    tamboCol.classList.add(`active`)
+    instrSelected.push(audioTambo)
+})
+tamboCol.addEventListener(`click`, function() {
+    tamboCol.classList.toggle(`active`)
+    tambo.classList.add(`active`)
+})
+
+djembe.addEventListener(`click`, function() {
+    djembe.classList.toggle(`inactive`)
+    djembeCol.classList.add(`active`)
+    instrSelected.push(audioDjembe)
+})
+djembeCol.addEventListener(`click`, function() {
+    djembeCol.classList.toggle(`active`)
+    djembe.classList.add(`active`)
+})
+
+cajon.addEventListener(`click`, function() {
+    cajon.classList.toggle(`inactive`)
+    cajonCol.classList.add(`active`)
+    instrSelected.push(audioCajon)
+})
+cajonCol.addEventListener(`click`, function() {
+    cajonCol.classList.toggle(`active`)
+    cajon.classList.add(`active`)
+})
+
+micOne.addEventListener(`click`, function() {
+    micOne.classList.toggle(`inactive`)
+    micOneCol.classList.add(`active`)
+    instrSelected.push(audioMicOne)
+})
+micOneCol.addEventListener(`click`, function() {
+    micOneCol.classList.toggle(`active`)
+    micOne.classList.add(`active`)
+})
+
+micTwo.addEventListener(`click`, function() {
+    micTwo.classList.toggle(`inactive`)
+    micTwoCol.classList.add(`active`)
+    instrSelected.push(audioMicTwo)
+})
+micTwoCol.addEventListener(`click`, function() {
+    micTwoCol.classList.toggle(`active`)
+    micTwo.classList.add(`active`)
+})
+
+speaker.addEventListener(`click`, function() {
+    speaker.classList.toggle(`inactive`)
+    speakerCol.classList.add(`active`)
+    instrSelected.push(audioSpeaker)
+})
+speakerCol.addEventListener(`click`, function() {
+    speakerCol.classList.toggle(`active`)
+    speaker.classList.add(`active`)
+})
+
+bass.addEventListener(`click`, function() {
+    bass.classList.toggle(`inactive`)
+    bassCol.classList.add(`active`)
+    instrSelected.push(audioBass)
+})
+bassCol.addEventListener(`click`, function() {
+    bassCol.classList.toggle(`active`)
+    bass.classList.add(`active`)
+})
+
+// add interaction to play/pause/stop buttons
+playBtn.addEventListener(`click`, function() {
+    playBtn.classList.toggle(`inactive`)
+    pauseBtn.classList.add(`active`)
+    stopBtn.classList.add(`active`)
+
+    let playMusic = function(instrument) {
+        instrument.play()
+    }
+    instrSelected.forEach(playMusic)
+})
+
+pauseBtn.addEventListener(`click`, function() {
+    pauseBtn.classList.toggle(`active`)
+    playBtn.classList.add(`active`)
+
+    let pauseMusic = function(instrument) {
+        instrument.pause()
+    }
+    instrSelected.forEach(pauseMusic)
+})
+
+// when stop button is pressed, reset the array to none
+
+stopBtn.addEventListener(`click`, function() {
+    stopBtn.classList.toggle(`active`)
+    playBtn.classList.add(`active`)
+    pauseBtn.classList.remove(`active`)
+
+    let stopMusic = function(instrument) {
+        instrument.load()
+    }
+    instrSelected.forEach(stopMusic)
+
+    let startNew = function() {
+        instrSelected = []
+    }
+
+    // reset all instruments to black and white when stop button is pressed. Tried using class with all instruments but the code wasn't working. 
     let resetInstruments = function() {
         guitar.classList.remove(`inactive`)
         guitarCol.classList.remove(`active`)
@@ -99,154 +237,18 @@ let bassCol = document.getElementById(`bass-col`)
         djembeCol.classList.remove(`active`)
         tambo.classList.remove(`inactive`)
         tamboCol.classList.remove(`active`)
+
+        //tried using umbrella class to add/remove active/inactive class to bw and col instruments but code did not act the away I wanted it to
+        // colInstruments.classList.remove(`active`)
+        // colInstruments.classList.add(`inactive`)
+        // bwInstruments.classList.add(`active`)
+        // bwInstruments.classList.remove(`inactive`)
     }
-
-//used this function to reset the array to none 
-    let startNew = function() {
-        instrSelected = []
-    }
-
-//add event listener to images (toggle between black-and-white and coloured images)
-guitar.addEventListener(`click`, function() {
-    guitar.classList.toggle(`inactive`)
-    guitarCol.classList.add(`active`)
-    instrSelected.push(audioGuitar)
-})
-
-ukulele.addEventListener(`click`, function() {
-    ukulele.classList.toggle(`inactive`)
-    ukuleleCol.classList.add(`active`)
-    instrSelected.push(audioUkulele)
-})
-
-tambo.addEventListener(`click`, function() {
-    tambo.classList.toggle(`inactive`)
-    tamboCol.classList.add(`active`)
-    instrSelected.push(audioTambo)
-})
-
-djembe.addEventListener(`click`, function() {
-    djembe.classList.toggle(`inactive`)
-    djembeCol.classList.add(`active`)
-    instrSelected.push(audioDjembe)
-})
-
-cajon.addEventListener(`click`, function() {
-    cajon.classList.toggle(`inactive`)
-    cajonCol.classList.add(`active`)
-    instrSelected.push(audioCajon)
-})
-
-micOne.addEventListener(`click`, function() {
-    micOne.classList.toggle(`inactive`)
-    micOneCol.classList.add(`active`)
-    instrSelected.push(audioMicOne)
-})
-
-micTwo.addEventListener(`click`, function() {
-    micTwo.classList.toggle(`inactive`)
-    micTwoCol.classList.add(`active`)
-    instrSelected.push(audioMicTwo)
-})
-
-speaker.addEventListener(`click`, function() {
-    speaker.classList.toggle(`inactive`)
-    speakerCol.classList.add(`active`)
-    instrSelected.push(audioSpeaker)
-})
-
-bass.addEventListener(`click`, function() {
-    bass.classList.toggle(`inactive`)
-    bassCol.classList.add(`active`)
-    instrSelected.push(audioBass)
-})
-
-// add interaction to play/pause/stop buttons
-playBtn.addEventListener(`click`, function() {
-    if (instrSelected.length === 0){
-        window.alert(`Remember to select your instruments`)
-        return
-    } else {
-        playBtn.classList.toggle(`inactive`)
-        pauseBtn.classList.add(`active`)
-        stopBtn.classList.add(`active`)
-            let playMusic = function(instrument) {
-                    instrument.play()
-                }
-        instrSelected.forEach(playMusic)
-    }
-})
-
-pauseBtn.addEventListener(`click`, function() {
-    pauseBtn.classList.toggle(`active`)
-    playBtn.classList.add(`active`)
-
-    let pauseMusic = function(instrument) {
-        instrument.pause()
-    }
-    instrSelected.forEach(pauseMusic)
-})
-
-// when stop button is pressed, reset all instrument images to black and white and the array to none
-
-stopBtn.addEventListener(`click`, function() {
-    stopBtn.classList.toggle(`active`)
-    playBtn.classList.add(`active`)
-    pauseBtn.classList.remove(`active`)
-
-    let stopMusic = function(instrument) {
-        instrument.load()
-    }
-    instrSelected.forEach(stopMusic)
-
     startNew()
     resetInstruments()
 })
 
-// when reset instruments button is pressed, reset all instrument images to black and white images and the array to none
-
-resetBtn.addEventListener(`click`, function() {
-    startNew()
-    resetInstruments()
-})
-
-//group coloured instruments images and black and white instruments images into two separate variables to change active/inactive status
-//querySelectorAll to find all instances (not just the first)
-//had issues using forEach to change the class of these items when pressing reset button
-
-// let colInstruments = document.querySelectorAll(`.col`)
-// let bwInstruments = document.querySelectorAll(`.bw`)
-
-//first try using forEach
-// let changeInstruments = colInstruments.forEach(function(removeColour) {
-//   removeColour.classList.add('inactive')
-// })
-
-//second try using forEach
-// let removeColour = function(instrument){
-//     let changeInstruments = function() {
-//         bwInstruments.classList.add(`active`)
-//         colInstruments.classList.remove(`active`)
-//     }
-
-//     instrument.addEventListener(`click`, changeInstruments)
-// }
-
-// colInstruments.forEach(removeColour)
-
-//third try using forEach
-// resetBtn.addEventListener(`click`, function() {
-
-//     let removeColImg = colInstruments.forEach(function(removeColour) {
-//         removeColour.classList.remove('active');
-//       })
-
-//     let addBwImg = bwInstruments.forEach(function(addBw) {
-//         addBw.classList.remove('inactive');
-// })
-// })
-
-//add event listeners to allow change in volume settings (per instrument)
+//volume settings (per instrument)
 
 let changeGuitarVol = function(){
     audioGuitar.volume = volumeGuitar.value
@@ -292,50 +294,3 @@ let changeSpeakerVol = function(){
     audioSpeaker.volume = volumeSpeaker.value
 }
 volumeSpeaker.addEventListener(`change`, changeSpeakerVol)
-
-//images return to black and white state once audio file is done
-
-audioGuitar.addEventListener("ended", function(){
-    audioGuitar.currentTime = 0;
-    resetInstruments()
-});
-
-audioUkulele.addEventListener("ended", function(){
-    audioUkulele.currentTime = 0;
-    resetInstruments()
-});
-
-audioTambo.addEventListener("ended", function(){
-    audioTambo.currentTime = 0;
-    resetInstruments()
-});
-
-audioDjembe.addEventListener("ended", function(){
-    audioDjembe.currentTime = 0;
-    resetInstruments()
-});
-
-audioCajon.addEventListener("ended", function(){
-    audioCajon.currentTime = 0;
-    resetInstruments()
-});
-
-audioMicOne.addEventListener("ended", function(){
-    audioMicOne.currentTime = 0;
-    resetInstruments()
-});
-
-audioMicTwo.addEventListener("ended", function(){
-    audioMicTwo.currentTime = 0;
-    resetInstruments()
-});
-
-audioSpeaker.addEventListener("ended", function(){
-    audioSpeaker.currentTime = 0;
-    resetInstruments()
-});
-
-audioBass.addEventListener("ended", function(){
-    audioBass.currentTime = 0;
-    resetInstruments()
-});

@@ -12,52 +12,48 @@
 
     <div class="studio-page">
       <img class="studio-background" alt="black and white music studio image" src="img/main-studio.svg">
- 
-        <div>
-          <label alt="volume control slider" id="volume">Custom Jam Volume</label>
-          <input type="range" value="0.5" min="0" max="1" step="0.1" id="volume-slider">
-        </div>
-        <div>
       
-      <div id="instruments-bw">
-      <img id="guitar" alt="black and white guitar image" class="instrument" class="active" src="img/guitar-bw.png">
-      <img id="ukulele" alt="black and white ukulele image" class="instrument" class="active" src="img/ukulele-bw.png">
-      <img id="tambo" alt="black and white tambourine image" class="instrument" class="active" src="img/tambo-bw.png">
-      <img id="djembe" alt="black and white djembe image" class="instrument" class="active" src="img/djembe-bw.png">
-      <img id="cajon" alt="black and white cajon image" class="instrument" class="active" src="img/cajon-bw.png">
-      <img id="mic-one" alt="black and white mic image" class="instrument" class="active" src="img/mic-two-bw.png">
-      <img id="mic-two" alt="black and white mic image" class="instrument" class="active" src="img/mic-one-bw.png">
-      <img id="speaker" alt="black and white speaker image" class="instrument" class="active" src="img/speaker-bw.png">
-      <img id="bass" alt="black and white classical guitar image" class="instrument" class="active" src="img/bass-bw.png">
+      <div>
+        <img id="play-btn" alt="play button icon" src="img/play-btn.png">
+        <img class="inactive" alt="pause button icon" id="pause-btn" src="img/pause-btn.png">
+        <img class="inactive" alt="stop button icon" id="stop-btn" src="img/stop-btn.png">
+        <img id="reset-btn" alt="reset button icon" src="img/reset-btn.svg">
       </div>
-      <div id="instruments-col">
-      <img id="guitar-col" alt="coloured guitar image" class="inactive" src="img/guitar-col.png">
-      <img id="ukulele-col" alt="coloured ukulele image" class="inactive" src="img/ukulele-col.png">
-      <img id="tambo-col" alt="coloured tambourine image" class="inactive" src="img/tambo-col.png">
-      <img id="djembe-col" alt="coloured djembe image" class="inactive" src="img/djembe-col.png">
-      <img id="cajon-col" alt="coloured cajon image" class="inactive" src="img/cajon-col.png">
-      <img id="mic-one-col" alt="coloured mic image" class="inactive" src="img/mic-two-col.png">
-      <img id="mic-two-col" alt="coloured mic image" class="inactive" src="img/mic-one-col.png">
-      <img id="speaker-col" alt="coloured speaker image" class="inactive" src="img/speaker-col.png">
-      <img id="bass-col" alt="coloured classical guitar image" class="inactive" src="img/bass-col.png">
+      
+      <div>
+      <img id="guitar" alt="black and white guitar image" class="bw" class="instrument" class="active" src="img/guitar-bw.png">
+      <img id="ukulele" alt="black and white ukulele image" class="bw" class="instrument" class="active" src="img/ukulele-bw.png">
+      <img id="tambo" alt="black and white tambourine image" class="bw" class="instrument" class="active" src="img/tambo-bw.png">
+      <img id="djembe" alt="black and white djembe image" class="bw" class="instrument" class="active" src="img/djembe-bw.png">
+      <img id="cajon" alt="black and white cajon image" class="bw" class="instrument" class="active" src="img/cajon-bw.png">
+      <img id="mic-one" alt="black and white mic image" class="bw" class="instrument" class="active" src="img/mic-two-bw.png">
+      <img id="mic-two" alt="black and white mic image" class="bw" class="instrument" class="active" src="img/mic-one-bw.png">
+      <img id="speaker" alt="black and white speaker image" class="bw" class="instrument" class="active" src="img/speaker-bw.png">
+      <img id="bass" alt="black and white classical guitar image" class="bw" class="instrument" class="active" src="img/bass-bw.png">
+      </div>
+
+      <div>
+      <img id="guitar-col" alt="coloured guitar image" class="inactive" class="col"  src="img/guitar-col.png">
+      <img id="ukulele-col" alt="coloured ukulele image" class="inactive" class="col" src="img/ukulele-col.png">
+      <img id="tambo-col" alt="coloured tambourine image" class="inactive" class="col" src="img/tambo-col.png">
+      <img id="djembe-col" alt="coloured djembe image" class="inactive" class="col" src="img/djembe-col.png">
+      <img id="cajon-col" alt="coloured cajon image" class="inactive" class="col" src="img/cajon-col.png">
+      <img id="mic-one-col" alt="coloured mic image" class="inactive" class="col" src="img/mic-two-col.png">
+      <img id="mic-two-col" alt="coloured mic image" class="inactive" class="col" src="img/mic-one-col.png">
+      <img id="speaker-col" alt="coloured speaker image" class="inactive" class="col" src="img/speaker-col.png">
+      <img id="bass-col" alt="coloured classical guitar image" class="inactive" class="col" src="img/bass-col.png">
       </div>
       <div id="instruments-volume">
-        <input type="range" value="0.5" min="0" max="1" step="0.1" id="volume-guitar" class="instr-vol-slider">
-        <input type="range" value="0.5" min="0" max="1" step="0.1" id="volume-ukulele" class="instr-vol-slider">
-        <input type="range" value="0.5" min="0" max="1" step="0.1" id="volume-tambo" class="instr-vol-slider">
-        <input type="range" value="0.5" min="0" max="1" step="0.1" id="volume-djembe" class="instr-vol-slider">
-        <input type="range" value="0.5" min="0" max="1" step="0.1" id="volume-cajon" class="instr-vol-slider">
+        <input type="range" value="0.3" min="0" max="1" step="0.1" id="volume-guitar" class="instr-vol-slider">
+        <input type="range" value="0.3" min="0" max="1" step="0.1" id="volume-ukulele" class="instr-vol-slider">
+        <input type="range" value="0.3" min="0" max="1" step="0.1" id="volume-tambo" class="instr-vol-slider">
+        <input type="range" value="0.2" min="0" max="1" step="0.1" id="volume-djembe" class="instr-vol-slider">
+        <input type="range" value="0.4" min="0" max="1" step="0.1" id="volume-cajon" class="instr-vol-slider">
         <input type="range" value="0.5" min="0" max="1" step="0.1" id="volume-mic-one" class="instr-vol-slider">
         <input type="range" value="0.5" min="0" max="1" step="0.1" id="volume-mic-two" class="instr-vol-slider">
-        <input type="range" value="0.5" min="0" max="1" step="0.1" id="volume-speaker" class="instr-vol-slider">
-        <input type="range" value="0.5" min="0" max="1" step="0.1" id="volume-bass" class="instr-vol-slider">
+        <input type="range" value="0.3" min="0" max="1" step="0.1" id="volume-speaker" class="instr-vol-slider">
+        <input type="range" value="0.4" min="0" max="1" step="0.1" id="volume-bass" class="instr-vol-slider">
       </div>
-    </div>
-
-    <div>
-      <img id="play-btn" alt="play button icon" src="img/play-btn.png">
-      <img class="inactive" alt="pause button icon" id="pause-btn" src="img/pause-btn.png">
-      <img class="inactive" alt="stop button icon" id="stop-btn" src="img/stop-btn.png">
     </div>
 
     <script src="js/script.js"></script>

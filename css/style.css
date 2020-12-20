@@ -83,6 +83,8 @@ body {
     top: 50%;
     width: 14%;
 }
+
+/*image classes*/
 .inactive {
     display: none;
 }
@@ -90,18 +92,25 @@ body {
     display: block;
 }
 
-/* buttons */
+/* interactive buttons in studio*/
 #play-btn, #pause-btn {
     position: absolute;
-    left: 54%;
-    top: 11%;
-    width: 5%;
+    left: 63%;
+    top: 10%;
+    width: 4.8%;
 }
 #stop-btn {
     position: absolute;
-    left: 60%;
-    top: 11%;
-    width: 5%;
+    left: 69.5%;
+    top: 10%;
+    width: 4.8%;
+}
+
+#reset-btn {
+    position: absolute;
+    left: 62.5%;
+    top: 24%;
+    width: 13%;
 }
 
 /* volume sliders */
@@ -115,9 +124,9 @@ body {
     background: #053321; 
     outline: none; 
 }
-/* did not change the slider thumb appearance since ::-webkit-slider-thumb is not supported by all browsers */
+
 #volume {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Verdana, Tahoma, sans-serif;
     color: #efeeec;
     font-size: 17px;
     position: absolute;
@@ -128,7 +137,7 @@ body {
     -webkit-appearance: none;
     width: 9%; 
     height: 6px; 
-    background: #efeeec; 
+    background: #053321; 
     outline: none; 
 }
 #volume-guitar {
@@ -176,3 +185,14 @@ body {
     left: 68%;
     top: 112%;
 }
+
+/* slider appearance changed for all browsers except for firefox */
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 25px;
+    width: 12px;
+    border-radius: 2px;
+    background: #efeeec;
+    cursor: pointer;
+  }
