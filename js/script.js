@@ -176,9 +176,9 @@ playBtn.addEventListener(`click`, function() {
             let playMusic = function(instrument) {
                     instrument.play()
                 }
-        isMusicPlaying = true
         instrSelected.forEach(playMusic)
     }
+
 })
 
 pauseBtn.addEventListener(`click`, function() {
@@ -190,7 +190,6 @@ pauseBtn.addEventListener(`click`, function() {
     }
     instrSelected.forEach(pauseMusic)
 
-    isMusicPlaying = false
 })
 
 // when stop button is pressed, reset all instrument images to black and white and the array to none
@@ -236,11 +235,6 @@ resetBtn.addEventListener(`click`, function() {
 // let bwInstruments = document.querySelectorAll(`.bw`)
 
 //first try using forEach
-// let changeInstruments = colInstruments.forEach(function(removeColour) {
-//   removeColour.classList.add('inactive')
-// })
-
-//second try using forEach
 // let removeColour = function(instrument){
 //     let changeInstruments = function() {
 //         bwInstruments.classList.add(`active`)
@@ -252,7 +246,7 @@ resetBtn.addEventListener(`click`, function() {
 
 // colInstruments.forEach(removeColour)
 
-//third try using forEach
+//second try using forEach
 // resetBtn.addEventListener(`click`, function() {
 
 //     let removeColImg = colInstruments.forEach(function(removeColour) {
@@ -262,6 +256,18 @@ resetBtn.addEventListener(`click`, function() {
 //     let addBwImg = bwInstruments.forEach(function(addBw) {
 //         addBw.classList.remove('inactive');
 // })
+// })
+
+//third try using forEach
+// let activeImages = document.querySelectorAll(`active`)
+
+// activeImages.forEach(function(resetBtn){
+
+//      resetBtn.addEventListener(`click`,function(){
+//            colInstruments.classList.remove(`active`)
+//            bwInstruments.classList.toggle(`inactive`)
+
+//     })
 // })
 
 //add event listeners to allow change in volume settings (per instrument)
@@ -313,47 +319,47 @@ volumeSpeaker.addEventListener(`change`, changeSpeakerVol)
 
 //images return to black and white state once audio file is done
 
-audioGuitar.addEventListener("ended", function(){
+audioGuitar.addEventListener(`ended`, function(){
     audioGuitar.currentTime = 0;
     resetInstruments()
 });
 
-audioUkulele.addEventListener("ended", function(){
+audioUkulele.addEventListener(`ended`, function(){
     audioUkulele.currentTime = 0;
     resetInstruments()
 });
 
-audioTambo.addEventListener("ended", function(){
+audioTambo.addEventListener(`ended`, function(){
     audioTambo.currentTime = 0;
     resetInstruments()
 });
 
-audioDjembe.addEventListener("ended", function(){
+audioDjembe.addEventListener(`ended`, function(){
     audioDjembe.currentTime = 0;
     resetInstruments()
 });
 
-audioCajon.addEventListener("ended", function(){
+audioCajon.addEventListener(`ended`, function(){
     audioCajon.currentTime = 0;
     resetInstruments()
 });
 
-audioMicOne.addEventListener("ended", function(){
+audioMicOne.addEventListener(`ended`, function(){
     audioMicOne.currentTime = 0;
     resetInstruments()
 });
 
-audioMicTwo.addEventListener("ended", function(){
+audioMicTwo.addEventListener(`ended`, function(){
     audioMicTwo.currentTime = 0;
     resetInstruments()
 });
 
-audioSpeaker.addEventListener("ended", function(){
+audioSpeaker.addEventListener(`ended`, function(){
     audioSpeaker.currentTime = 0;
     resetInstruments()
 });
 
-audioBass.addEventListener("ended", function(){
+audioBass.addEventListener(`ended`, function(){
     audioBass.currentTime = 0;
     resetInstruments()
 });
