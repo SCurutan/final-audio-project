@@ -18,6 +18,9 @@ let volumeSpeaker = document.getElementById(`volume-speaker`)
 //define array
 let instrSelected = [] 
 
+//define Boolean
+let isMusicPlaying = false
+
 //set initial volumes of instruments
 let initGuitarVol = 0.3
 let initUkuleleVol = 0.3
@@ -173,6 +176,7 @@ playBtn.addEventListener(`click`, function() {
             let playMusic = function(instrument) {
                     instrument.play()
                 }
+        isMusicPlaying = true
         instrSelected.forEach(playMusic)
     }
 })
@@ -185,6 +189,8 @@ pauseBtn.addEventListener(`click`, function() {
         instrument.pause()
     }
     instrSelected.forEach(pauseMusic)
+
+    isMusicPlaying = false
 })
 
 // when stop button is pressed, reset all instrument images to black and white and the array to none
@@ -206,8 +212,20 @@ stopBtn.addEventListener(`click`, function() {
 // when reset instruments button is pressed, reset all instrument images to black and white images and the array to none
 
 resetBtn.addEventListener(`click`, function() {
-    startNew()
+    let stopMusic = function(instrument) {
+        instrument.load()
+    }
+    instrSelected.forEach(stopMusic)
+
+    if (isMusicPlaying = true) {
+        pauseBtn.classList.remove(`active`)
+        playBtn.classList.add(`active`)
+    }
+
+    isMusicPlaying = false
+
     resetInstruments()
+    startNew()
 })
 
 //group coloured instruments images and black and white instruments images into two separate variables to change active/inactive status
